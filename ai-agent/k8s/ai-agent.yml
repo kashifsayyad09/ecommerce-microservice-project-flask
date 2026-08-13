@@ -54,7 +54,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: ai-agent
-          image: 695454131301.dkr.ecr.us-east-1.amazonaws.com/shopping-site-ai-agent:latest
+          image: 900360460803.dkr.ecr.us-east-1.amazonaws.com/shopping-site-ai-agent:38016d1ada3ff3ecf7195cc62d81425ff5a23c13
           ports:
             - containerPort: 8200
           envFrom:

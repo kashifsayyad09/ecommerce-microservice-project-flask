@@ -43,7 +43,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: mcp-server
-          image: 695454131301.dkr.ecr.us-east-1.amazonaws.com/shopping-site-mcp-server:latest
+          image: 900360460803.dkr.ecr.us-east-1.amazonaws.com/shopping-site-mcp-server:38016d1ada3ff3ecf7195cc62d81425ff5a23c13
           ports:
             - containerPort: 8100
           envFrom:
