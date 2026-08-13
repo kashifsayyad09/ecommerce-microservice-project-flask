@@ -314,6 +314,22 @@ New ArgoCD Applications: `k8s-argocd/mcp-server/mcp-server.yaml`, `k8s-argocd/ai
 - Rate limiting (`RATE_LIMIT_PER_MINUTE`), prompt-length limits (`MAX_PROMPT_LENGTH`), request timeouts (`AI_REQUEST_TIMEOUT`), and a max tool-call loop bound (`MAX_TOOL_ITERATIONS`) all prevent runaway usage.
 - CORS is restricted via `CORS_ALLOWED_ORIGINS`; both new services run as non-root with read-only root filesystems and no Kubernetes/AWS API access.
 
+## GSAP Animation Layer
+
+`frontend/main/gsap-animations.js` adds a lightweight, non-intrusive GSAP animation layer across the storefront, included on all 19 pages the same way as `theme-toggle.js`. It never replaces or blocks any existing behavior — everything is layered on top of the site's existing class-toggle logic (`.open`, cart badge text, toast `.show`, etc.) via `MutationObserver`/`IntersectionObserver`, so it works the same way on every page even though each category page has its own separate inline script:
+
+- **Entrance**: header + hero/deals-carousel fade/slide in on load
+- **Scroll reveal**: product cards, deal cards, and cart line items fade/lift into view the first time they enter the viewport — including cards injected later via `innerHTML` on filter/search/cart re-renders
+- **Hover/press micro-interactions**: product cards lift on hover; Add-to-Cart/Checkout/topbar buttons get a quick press-and-release bounce
+- **Modals & cart drawer**: overlay fade + modal-card scale/bounce on open; the sliding cart drawer gets a spring-in motion
+- **Cart badge pop** when the item count changes; **toast** slides/fades in instead of a hard class-toggle
+
+Robustness, following the same lessons as the theme toggle:
+- Respects `prefers-reduced-motion` (skips the whole layer if set)
+- If GSAP fails to load (CDN slow/blocked), the site works exactly as it did before this layer existed — nothing depends on it
+- Each of the 6 animation subsystems initializes independently in a try/catch, so one failing (e.g. an unexpected DOM shape on a given page) never takes the others down
+- Shares the same GSAP CDN URL as `theme-toggle.js` so the two scripts never load GSAP twice
+
 ## Dark/Light Theme Toggle
 
 `frontend/main/theme-toggle.js` adds an animated dark/light switch to the menu bar (top-right, next to Login/Orders/Cart on pages that have that layout; falls back to appending inside `<header>`, then to a fixed corner button, so it always renders somewhere sensible on pages with different header markup). Included on all 19 pages via the same absolute-path `<script src="/theme-toggle.js" defer>` pattern already used for `session-watchdog.js`.
