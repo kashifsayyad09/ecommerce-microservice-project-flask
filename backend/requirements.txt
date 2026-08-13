@@ -5,3 +5,4 @@ werkzeug
 flask-mail
 python-dotenv
 cryptography
+PyJWT>=2.8.0,<3

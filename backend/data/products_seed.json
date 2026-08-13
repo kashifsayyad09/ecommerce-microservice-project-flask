@@ -1,0 +1,938 @@
+[
+  {
+    "product_id": "f1",
+    "name": "Cotton Casual Shirt",
+    "price": 1299.0,
+    "description": "Breathable daily shirt with a clean office-ready fit.",
+    "category": "fashion",
+    "category_title": "Fashion",
+    "image_query": "shirt,clothing"
+  },
+  {
+    "product_id": "f2",
+    "name": "Denim Jacket",
+    "price": 2499.0,
+    "description": "Layered streetwear jacket for college and weekend looks.",
+    "category": "fashion",
+    "category_title": "Fashion",
+    "image_query": "denim,jacket"
+  },
+  {
+    "product_id": "f3",
+    "name": "Running Sneakers",
+    "price": 3299.0,
+    "description": "Lightweight sneakers with a cushioned walking sole.",
+    "category": "fashion",
+    "category_title": "Fashion",
+    "image_query": "sneakers,shoes"
+  },
+  {
+    "product_id": "f4",
+    "name": "Women Kurti Set",
+    "price": 1899.0,
+    "description": "Soft printed kurti set for festive and daily wear.",
+    "category": "fashion",
+    "category_title": "Fashion",
+    "image_query": "kurti,fashion"
+  },
+  {
+    "product_id": "f5",
+    "name": "Travel Backpack",
+    "price": 1599.0,
+    "description": "Laptop-ready backpack with padded storage.",
+    "category": "fashion",
+    "category_title": "Fashion",
+    "image_query": "backpack,bags"
+  },
+  {
+    "product_id": "f6",
+    "name": "Smart Watch Strap",
+    "price": 799.0,
+    "description": "Comfortable silicone strap in a modern color finish.",
+    "category": "fashion",
+    "category_title": "Fashion",
+    "image_query": "watch,strap"
+  },
+  {
+    "product_id": "f7",
+    "name": "Formal Trousers",
+    "price": 1699.0,
+    "description": "Stretch formal trousers for work and interviews.",
+    "category": "fashion",
+    "category_title": "Fashion",
+    "image_query": "trousers,pants"
+  },
+  {
+    "product_id": "f8",
+    "name": "Classic Sunglasses",
+    "price": 999.0,
+    "description": "UV-protected sunglasses with a lightweight frame.",
+    "category": "fashion",
+    "category_title": "Fashion",
+    "image_query": "sunglasses,accessory"
+  },
+  {
+    "product_id": "m1",
+    "name": "Pixel 10",
+    "price": 99800.0,
+    "description": "AI camera phone with bright display and fast charging.",
+    "category": "mobiles",
+    "category_title": "Mobiles",
+    "image_query": "pixel,smartphone"
+  },
+  {
+    "product_id": "m2",
+    "name": "Pixel Fold",
+    "price": 129999.0,
+    "description": "Foldable display phone for work, media, and multitasking.",
+    "category": "mobiles",
+    "category_title": "Mobiles",
+    "image_query": "foldable,smartphone"
+  },
+  {
+    "product_id": "m3",
+    "name": "Pixel 9a",
+    "price": 29999.0,
+    "description": "Value phone with clean Android and reliable camera.",
+    "category": "mobiles",
+    "category_title": "Mobiles",
+    "image_query": "android,phone"
+  },
+  {
+    "product_id": "m4",
+    "name": "Pixel Watch",
+    "price": 19999.0,
+    "description": "Smart wearable for fitness, calls, and daily reminders.",
+    "category": "mobiles",
+    "category_title": "Mobiles",
+    "image_query": "smartwatch"
+  },
+  {
+    "product_id": "m5",
+    "name": "Fast Charger 45W",
+    "price": 1799.0,
+    "description": "Compact USB-C charger for phones and tablets.",
+    "category": "mobiles",
+    "category_title": "Mobiles",
+    "image_query": "phone,charger"
+  },
+  {
+    "product_id": "m6",
+    "name": "Clear Case",
+    "price": 899.0,
+    "description": "Shock-resistant transparent case for daily protection.",
+    "category": "mobiles",
+    "category_title": "Mobiles",
+    "image_query": "phone,case"
+  },
+  {
+    "product_id": "m7",
+    "name": "Screen Guard Pack",
+    "price": 499.0,
+    "description": "Tempered glass protection with easy installation.",
+    "category": "mobiles",
+    "category_title": "Mobiles",
+    "image_query": "screen,protector"
+  },
+  {
+    "product_id": "m8",
+    "name": "Wireless Power Stand",
+    "price": 3499.0,
+    "description": "Desk charging stand for phones and earbuds.",
+    "category": "mobiles",
+    "category_title": "Mobiles",
+    "image_query": "wireless,charger"
+  },
+  {
+    "product_id": "b1",
+    "name": "Vitamin C Serum",
+    "price": 699.0,
+    "description": "Brightening serum for daily skincare routine.",
+    "category": "beauty",
+    "category_title": "Beauty",
+    "image_query": "skincare,serum"
+  },
+  {
+    "product_id": "b2",
+    "name": "Matte Lip Color",
+    "price": 499.0,
+    "description": "Long-wear lipstick with smooth matte finish.",
+    "category": "beauty",
+    "category_title": "Beauty",
+    "image_query": "lipstick,makeup"
+  },
+  {
+    "product_id": "b3",
+    "name": "Aloe Face Wash",
+    "price": 299.0,
+    "description": "Gentle cleanser for fresh morning use.",
+    "category": "beauty",
+    "category_title": "Beauty",
+    "image_query": "facewash,skincare"
+  },
+  {
+    "product_id": "b4",
+    "name": "Hair Styling Kit",
+    "price": 1499.0,
+    "description": "Compact grooming kit for quick styling.",
+    "category": "beauty",
+    "category_title": "Beauty",
+    "image_query": "hair,styling"
+  },
+  {
+    "product_id": "b5",
+    "name": "Sunscreen SPF 50",
+    "price": 599.0,
+    "description": "Lightweight sunscreen for daily protection.",
+    "category": "beauty",
+    "category_title": "Beauty",
+    "image_query": "sunscreen,skincare"
+  },
+  {
+    "product_id": "b6",
+    "name": "Perfume Mist",
+    "price": 899.0,
+    "description": "Fresh fragrance mist for everyday wear.",
+    "category": "beauty",
+    "category_title": "Beauty",
+    "image_query": "perfume,beauty"
+  },
+  {
+    "product_id": "b7",
+    "name": "Makeup Brush Set",
+    "price": 799.0,
+    "description": "Soft brush set for base and eye makeup.",
+    "category": "beauty",
+    "category_title": "Beauty",
+    "image_query": "makeup,brush"
+  },
+  {
+    "product_id": "b8",
+    "name": "Beard Grooming Oil",
+    "price": 449.0,
+    "description": "Nourishing grooming oil with clean finish.",
+    "category": "beauty",
+    "category_title": "Beauty",
+    "image_query": "beard,grooming"
+  },
+  {
+    "product_id": "e1",
+    "name": "Pixel Home Hub",
+    "price": 6999.0,
+    "description": "Smart display and speaker for connected rooms.",
+    "category": "electronics",
+    "category_title": "Electronics",
+    "image_query": "smart,display"
+  },
+  {
+    "product_id": "e2",
+    "name": "Nest Cam",
+    "price": 9999.0,
+    "description": "Security camera with mobile alerts and clear video.",
+    "category": "electronics",
+    "category_title": "Electronics",
+    "image_query": "security,camera"
+  },
+  {
+    "product_id": "e3",
+    "name": "Chromecast Ultra",
+    "price": 3499.0,
+    "description": "4K streaming device for movies and classes.",
+    "category": "electronics",
+    "category_title": "Electronics",
+    "image_query": "streaming,device"
+  },
+  {
+    "product_id": "e4",
+    "name": "Google Router",
+    "price": 5499.0,
+    "description": "Fast mesh Wi-Fi router for home and lab networks.",
+    "category": "electronics",
+    "category_title": "Electronics",
+    "image_query": "wifi,router"
+  },
+  {
+    "product_id": "e5",
+    "name": "Nest Doorbell",
+    "price": 8499.0,
+    "description": "Smart video doorbell with visitor notifications.",
+    "category": "electronics",
+    "category_title": "Electronics",
+    "image_query": "doorbell,camera"
+  },
+  {
+    "product_id": "e6",
+    "name": "Smart Lamp",
+    "price": 2899.0,
+    "description": "Voice-ready ambient light for desks.",
+    "category": "electronics",
+    "category_title": "Electronics",
+    "image_query": "smart,lamp"
+  },
+  {
+    "product_id": "e7",
+    "name": "TV Stick",
+    "price": 3999.0,
+    "description": "Portable smart TV streaming stick.",
+    "category": "electronics",
+    "category_title": "Electronics",
+    "image_query": "tv,stick"
+  },
+  {
+    "product_id": "e8",
+    "name": "Bluetooth Speaker",
+    "price": 2299.0,
+    "description": "Compact speaker with rich room audio.",
+    "category": "electronics",
+    "category_title": "Electronics",
+    "image_query": "bluetooth,speaker"
+  },
+  {
+    "product_id": "h1",
+    "name": "Floor Lamp",
+    "price": 2499.0,
+    "description": "Warm corner lamp for living rooms and study spaces.",
+    "category": "home",
+    "category_title": "Home",
+    "image_query": "floor,lamp"
+  },
+  {
+    "product_id": "h2",
+    "name": "Cookware Set",
+    "price": 3299.0,
+    "description": "Non-stick cookware kit for everyday meals.",
+    "category": "home",
+    "category_title": "Home",
+    "image_query": "cookware,kitchen"
+  },
+  {
+    "product_id": "h3",
+    "name": "Cotton Bedsheet",
+    "price": 1199.0,
+    "description": "Soft bedsheet set with pillow covers.",
+    "category": "home",
+    "category_title": "Home",
+    "image_query": "bedsheet,home"
+  },
+  {
+    "product_id": "h4",
+    "name": "Storage Organizer",
+    "price": 899.0,
+    "description": "Stackable organizer for shelves and wardrobes.",
+    "category": "home",
+    "category_title": "Home",
+    "image_query": "storage,organizer"
+  },
+  {
+    "product_id": "h5",
+    "name": "Wall Clock",
+    "price": 749.0,
+    "description": "Minimal wall clock for clean interiors.",
+    "category": "home",
+    "category_title": "Home",
+    "image_query": "wall,clock"
+  },
+  {
+    "product_id": "h6",
+    "name": "Dinner Set",
+    "price": 1799.0,
+    "description": "Ceramic dinner set for family serving.",
+    "category": "home",
+    "category_title": "Home",
+    "image_query": "dinner,set"
+  },
+  {
+    "product_id": "h7",
+    "name": "Curtain Pair",
+    "price": 1299.0,
+    "description": "Blackout curtains with smooth fabric.",
+    "category": "home",
+    "category_title": "Home",
+    "image_query": "curtains,home"
+  },
+  {
+    "product_id": "h8",
+    "name": "Bath Towel Pack",
+    "price": 999.0,
+    "description": "Absorbent towels for daily use.",
+    "category": "home",
+    "category_title": "Home",
+    "image_query": "bath,towel"
+  },
+  {
+    "product_id": "a1",
+    "name": "Mixer Grinder",
+    "price": 2799.0,
+    "description": "Powerful kitchen mixer with three jars.",
+    "category": "appliances",
+    "category_title": "Appliances",
+    "image_query": "mixer,grinder"
+  },
+  {
+    "product_id": "a2",
+    "name": "Air Fryer",
+    "price": 5999.0,
+    "description": "Oil-light cooking appliance with digital controls.",
+    "category": "appliances",
+    "category_title": "Appliances",
+    "image_query": "air,fryer"
+  },
+  {
+    "product_id": "a3",
+    "name": "Water Purifier",
+    "price": 10999.0,
+    "description": "RO purifier for clean drinking water.",
+    "category": "appliances",
+    "category_title": "Appliances",
+    "image_query": "water,purifier"
+  },
+  {
+    "product_id": "a4",
+    "name": "Washing Machine",
+    "price": 22999.0,
+    "description": "Efficient washing machine for family laundry.",
+    "category": "appliances",
+    "category_title": "Appliances",
+    "image_query": "washing,machine"
+  },
+  {
+    "product_id": "a5",
+    "name": "Microwave Oven",
+    "price": 8999.0,
+    "description": "Convection microwave for quick cooking.",
+    "category": "appliances",
+    "category_title": "Appliances",
+    "image_query": "microwave,oven"
+  },
+  {
+    "product_id": "a6",
+    "name": "Ceiling Fan",
+    "price": 2499.0,
+    "description": "Energy-saving fan with quiet motor.",
+    "category": "appliances",
+    "category_title": "Appliances",
+    "image_query": "ceiling,fan"
+  },
+  {
+    "product_id": "a7",
+    "name": "Vacuum Cleaner",
+    "price": 7499.0,
+    "description": "Compact vacuum for floor and sofa cleaning.",
+    "category": "appliances",
+    "category_title": "Appliances",
+    "image_query": "vacuum,cleaner"
+  },
+  {
+    "product_id": "a8",
+    "name": "Refrigerator",
+    "price": 28999.0,
+    "description": "Double-door refrigerator with spacious storage.",
+    "category": "appliances",
+    "category_title": "Appliances",
+    "image_query": "refrigerator"
+  },
+  {
+    "product_id": "t1",
+    "name": "Building Blocks",
+    "price": 899.0,
+    "description": "Creative block set for learning and play.",
+    "category": "toys",
+    "category_title": "Toys, Baby & Kids",
+    "image_query": "building,blocks"
+  },
+  {
+    "product_id": "t2",
+    "name": "Remote Car",
+    "price": 1299.0,
+    "description": "Rechargeable toy car with smooth controls.",
+    "category": "toys",
+    "category_title": "Toys, Baby & Kids",
+    "image_query": "remote,car,toy"
+  },
+  {
+    "product_id": "t3",
+    "name": "Baby Stroller",
+    "price": 5999.0,
+    "description": "Foldable stroller with safety harness.",
+    "category": "toys",
+    "category_title": "Toys, Baby & Kids",
+    "image_query": "baby,stroller"
+  },
+  {
+    "product_id": "t4",
+    "name": "Soft Teddy",
+    "price": 699.0,
+    "description": "Soft plush toy for gifting.",
+    "category": "toys",
+    "category_title": "Toys, Baby & Kids",
+    "image_query": "teddy,toy"
+  },
+  {
+    "product_id": "t5",
+    "name": "Learning Tablet",
+    "price": 1499.0,
+    "description": "Kids learning tablet with activity modes.",
+    "category": "toys",
+    "category_title": "Toys, Baby & Kids",
+    "image_query": "learning,toy"
+  },
+  {
+    "product_id": "t6",
+    "name": "Cradle Set",
+    "price": 3499.0,
+    "description": "Comfortable cradle set for infants.",
+    "category": "toys",
+    "category_title": "Toys, Baby & Kids",
+    "image_query": "baby,cradle"
+  },
+  {
+    "product_id": "t7",
+    "name": "Puzzle Pack",
+    "price": 399.0,
+    "description": "Brain puzzle set for kids.",
+    "category": "toys",
+    "category_title": "Toys, Baby & Kids",
+    "image_query": "puzzle,toy"
+  },
+  {
+    "product_id": "t8",
+    "name": "Art Kit",
+    "price": 799.0,
+    "description": "Coloring and craft kit for projects.",
+    "category": "toys",
+    "category_title": "Toys, Baby & Kids",
+    "image_query": "kids,art"
+  },
+  {
+    "product_id": "g1",
+    "name": "Organic Rice 5kg",
+    "price": 699.0,
+    "description": "Daily staple rice pack for family cooking.",
+    "category": "food",
+    "category_title": "Food & Health",
+    "image_query": "rice,grocery"
+  },
+  {
+    "product_id": "g2",
+    "name": "Protein Mix",
+    "price": 1199.0,
+    "description": "Nutrition mix for fitness and recovery.",
+    "category": "food",
+    "category_title": "Food & Health",
+    "image_query": "protein,health"
+  },
+  {
+    "product_id": "g3",
+    "name": "Dry Fruit Box",
+    "price": 999.0,
+    "description": "Almonds, cashews, and raisins gift pack.",
+    "category": "food",
+    "category_title": "Food & Health",
+    "image_query": "dry,fruits"
+  },
+  {
+    "product_id": "g4",
+    "name": "Fresh Juice Pack",
+    "price": 349.0,
+    "description": "Assorted juice bottles for quick refreshment.",
+    "category": "food",
+    "category_title": "Food & Health",
+    "image_query": "juice,drink"
+  },
+  {
+    "product_id": "g5",
+    "name": "Health Check Kit",
+    "price": 1499.0,
+    "description": "Basic digital health monitoring kit.",
+    "category": "food",
+    "category_title": "Food & Health",
+    "image_query": "health,kit"
+  },
+  {
+    "product_id": "g6",
+    "name": "Breakfast Cereal",
+    "price": 449.0,
+    "description": "Crunchy cereal for daily breakfast.",
+    "category": "food",
+    "category_title": "Food & Health",
+    "image_query": "cereal,food"
+  },
+  {
+    "product_id": "g7",
+    "name": "Green Tea Pack",
+    "price": 299.0,
+    "description": "Refreshing green tea for daily wellness.",
+    "category": "food",
+    "category_title": "Food & Health",
+    "image_query": "green,tea"
+  },
+  {
+    "product_id": "g8",
+    "name": "Snack Combo",
+    "price": 599.0,
+    "description": "Mixed snacks pack for family evenings.",
+    "category": "food",
+    "category_title": "Food & Health",
+    "image_query": "snacks,food"
+  },
+  {
+    "product_id": "au1",
+    "name": "Car Vacuum",
+    "price": 1899.0,
+    "description": "Portable vacuum cleaner for car interiors.",
+    "category": "auto",
+    "category_title": "Auto Accessories",
+    "image_query": "car,vacuum"
+  },
+  {
+    "product_id": "au2",
+    "name": "Dash Camera",
+    "price": 4999.0,
+    "description": "Wide-angle dashboard camera for trips.",
+    "category": "auto",
+    "category_title": "Auto Accessories",
+    "image_query": "dash,camera"
+  },
+  {
+    "product_id": "au3",
+    "name": "Phone Mount",
+    "price": 599.0,
+    "description": "Stable phone holder for navigation.",
+    "category": "auto",
+    "category_title": "Auto Accessories",
+    "image_query": "phone,mount,car"
+  },
+  {
+    "product_id": "au4",
+    "name": "Seat Organizer",
+    "price": 899.0,
+    "description": "Back-seat organizer for bottles and gadgets.",
+    "category": "auto",
+    "category_title": "Auto Accessories",
+    "image_query": "car,organizer"
+  },
+  {
+    "product_id": "au5",
+    "name": "Tyre Inflator",
+    "price": 2299.0,
+    "description": "Digital inflator for emergency use.",
+    "category": "auto",
+    "category_title": "Auto Accessories",
+    "image_query": "tyre,inflator"
+  },
+  {
+    "product_id": "au6",
+    "name": "Car Charger",
+    "price": 699.0,
+    "description": "Dual USB fast charger for vehicles.",
+    "category": "auto",
+    "category_title": "Auto Accessories",
+    "image_query": "car,charger"
+  },
+  {
+    "product_id": "au7",
+    "name": "Helmet Visor",
+    "price": 499.0,
+    "description": "Scratch-resistant visor accessory.",
+    "category": "auto",
+    "category_title": "Auto Accessories",
+    "image_query": "helmet,visor"
+  },
+  {
+    "product_id": "au8",
+    "name": "Cleaning Kit",
+    "price": 999.0,
+    "description": "Complete car cleaning and polish set.",
+    "category": "auto",
+    "category_title": "Auto Accessories",
+    "image_query": "car,cleaning"
+  },
+  {
+    "product_id": "tw1",
+    "name": "Electric Scooter",
+    "price": 84999.0,
+    "description": "City scooter with smooth electric ride.",
+    "category": "two-wheelers",
+    "category_title": "2 Wheelers",
+    "image_query": "electric,scooter"
+  },
+  {
+    "product_id": "tw2",
+    "name": "Riding Helmet",
+    "price": 1499.0,
+    "description": "ISI-style helmet for daily commuting.",
+    "category": "two-wheelers",
+    "category_title": "2 Wheelers",
+    "image_query": "riding,helmet"
+  },
+  {
+    "product_id": "tw3",
+    "name": "Bike Cover",
+    "price": 799.0,
+    "description": "Water-resistant cover for outdoor parking.",
+    "category": "two-wheelers",
+    "category_title": "2 Wheelers",
+    "image_query": "bike,cover"
+  },
+  {
+    "product_id": "tw4",
+    "name": "Riding Gloves",
+    "price": 899.0,
+    "description": "Comfort grip gloves for safer rides.",
+    "category": "two-wheelers",
+    "category_title": "2 Wheelers",
+    "image_query": "riding,gloves"
+  },
+  {
+    "product_id": "tw5",
+    "name": "Scooter Charger",
+    "price": 2999.0,
+    "description": "Portable charger for EV scooter use.",
+    "category": "two-wheelers",
+    "category_title": "2 Wheelers",
+    "image_query": "ev,charger"
+  },
+  {
+    "product_id": "tw6",
+    "name": "Bike Lock",
+    "price": 699.0,
+    "description": "Heavy-duty lock for bikes and scooters.",
+    "category": "two-wheelers",
+    "category_title": "2 Wheelers",
+    "image_query": "bike,lock"
+  },
+  {
+    "product_id": "tw7",
+    "name": "LED Headlight",
+    "price": 1299.0,
+    "description": "Bright replacement headlight kit.",
+    "category": "two-wheelers",
+    "category_title": "2 Wheelers",
+    "image_query": "bike,headlight"
+  },
+  {
+    "product_id": "tw8",
+    "name": "Raincoat Set",
+    "price": 999.0,
+    "description": "Rider raincoat with compact storage pouch.",
+    "category": "two-wheelers",
+    "category_title": "2 Wheelers",
+    "image_query": "rider,raincoat"
+  },
+  {
+    "product_id": "s1",
+    "name": "Cricket Bat",
+    "price": 2499.0,
+    "description": "Balanced bat for tennis and leather ball practice.",
+    "category": "sports",
+    "category_title": "Sports & Fitness",
+    "image_query": "cricket,bat"
+  },
+  {
+    "product_id": "s2",
+    "name": "Yoga Mat",
+    "price": 799.0,
+    "description": "Non-slip yoga mat for home workouts.",
+    "category": "sports",
+    "category_title": "Sports & Fitness",
+    "image_query": "yoga,mat"
+  },
+  {
+    "product_id": "s3",
+    "name": "Dumbbell Pair",
+    "price": 1999.0,
+    "description": "Adjustable dumbbell pair for strength training.",
+    "category": "sports",
+    "category_title": "Sports & Fitness",
+    "image_query": "dumbbells,fitness"
+  },
+  {
+    "product_id": "s4",
+    "name": "Running Shoes",
+    "price": 2999.0,
+    "description": "Cushioned shoes for daily runs.",
+    "category": "sports",
+    "category_title": "Sports & Fitness",
+    "image_query": "running,shoes"
+  },
+  {
+    "product_id": "s5",
+    "name": "Football",
+    "price": 899.0,
+    "description": "Durable training football.",
+    "category": "sports",
+    "category_title": "Sports & Fitness",
+    "image_query": "football,sports"
+  },
+  {
+    "product_id": "s6",
+    "name": "Badminton Kit",
+    "price": 1599.0,
+    "description": "Two rackets with shuttle pack.",
+    "category": "sports",
+    "category_title": "Sports & Fitness",
+    "image_query": "badminton,racket"
+  },
+  {
+    "product_id": "s7",
+    "name": "Fitness Band",
+    "price": 2499.0,
+    "description": "Activity tracker for steps and workouts.",
+    "category": "sports",
+    "category_title": "Sports & Fitness",
+    "image_query": "fitness,band"
+  },
+  {
+    "product_id": "s8",
+    "name": "Gym Bag",
+    "price": 999.0,
+    "description": "Spacious bag with shoe compartment.",
+    "category": "sports",
+    "category_title": "Sports & Fitness",
+    "image_query": "gym,bag"
+  },
+  {
+    "product_id": "bk1",
+    "name": "Cloud Computing Book",
+    "price": 699.0,
+    "description": "Practical cloud basics and deployment notes.",
+    "category": "books",
+    "category_title": "Books & Stationery",
+    "image_query": "cloud,book"
+  },
+  {
+    "product_id": "bk2",
+    "name": "DevOps Handbook",
+    "price": 899.0,
+    "description": "CI/CD and infrastructure practice guide.",
+    "category": "books",
+    "category_title": "Books & Stationery",
+    "image_query": "devops,book"
+  },
+  {
+    "product_id": "bk3",
+    "name": "Notebook Pack",
+    "price": 299.0,
+    "description": "Ruled notebooks for classroom notes.",
+    "category": "books",
+    "category_title": "Books & Stationery",
+    "image_query": "notebook,stationery"
+  },
+  {
+    "product_id": "bk4",
+    "name": "Pen Set",
+    "price": 199.0,
+    "description": "Smooth writing pen combo.",
+    "category": "books",
+    "category_title": "Books & Stationery",
+    "image_query": "pens,stationery"
+  },
+  {
+    "product_id": "bk5",
+    "name": "Exam Prep Guide",
+    "price": 549.0,
+    "description": "Practice questions for technical interviews.",
+    "category": "books",
+    "category_title": "Books & Stationery",
+    "image_query": "exam,book"
+  },
+  {
+    "product_id": "bk6",
+    "name": "Desk Organizer",
+    "price": 499.0,
+    "description": "Organizer for pens, notes, and clips.",
+    "category": "books",
+    "category_title": "Books & Stationery",
+    "image_query": "desk,organizer"
+  },
+  {
+    "product_id": "bk7",
+    "name": "Sticky Notes",
+    "price": 149.0,
+    "description": "Color notes for planning and reminders.",
+    "category": "books",
+    "category_title": "Books & Stationery",
+    "image_query": "sticky,notes"
+  },
+  {
+    "product_id": "bk8",
+    "name": "Drawing Kit",
+    "price": 799.0,
+    "description": "Sketching pencils and drawing sheets.",
+    "category": "books",
+    "category_title": "Books & Stationery",
+    "image_query": "drawing,stationery"
+  },
+  {
+    "product_id": "fu1",
+    "name": "Study Chair",
+    "price": 3999.0,
+    "description": "Comfortable chair for long study sessions.",
+    "category": "furniture",
+    "category_title": "Furniture",
+    "image_query": "study,chair"
+  },
+  {
+    "product_id": "fu2",
+    "name": "Computer Desk",
+    "price": 5999.0,
+    "description": "Compact desk for laptop and monitor setup.",
+    "category": "furniture",
+    "category_title": "Furniture",
+    "image_query": "computer,desk"
+  },
+  {
+    "product_id": "fu3",
+    "name": "Bookshelf",
+    "price": 3499.0,
+    "description": "Five-shelf unit for books and decor.",
+    "category": "furniture",
+    "category_title": "Furniture",
+    "image_query": "bookshelf,furniture"
+  },
+  {
+    "product_id": "fu4",
+    "name": "Coffee Table",
+    "price": 2499.0,
+    "description": "Minimal living-room table with storage shelf.",
+    "category": "furniture",
+    "category_title": "Furniture",
+    "image_query": "coffee,table"
+  },
+  {
+    "product_id": "fu5",
+    "name": "Sofa Bed",
+    "price": 14999.0,
+    "description": "Space-saving sofa bed for compact rooms.",
+    "category": "furniture",
+    "category_title": "Furniture",
+    "image_query": "sofa,bed"
+  },
+  {
+    "product_id": "fu6",
+    "name": "Wardrobe",
+    "price": 11999.0,
+    "description": "Two-door wardrobe with hanging section.",
+    "category": "furniture",
+    "category_title": "Furniture",
+    "image_query": "wardrobe,furniture"
+  },
+  {
+    "product_id": "fu7",
+    "name": "TV Unit",
+    "price": 6999.0,
+    "description": "Media console for TV and accessories.",
+    "category": "furniture",
+    "category_title": "Furniture",
+    "image_query": "tv,unit"
+  },
+  {
+    "product_id": "fu8",
+    "name": "Dining Chair Pair",
+    "price": 2999.0,
+    "description": "Pair of sturdy dining chairs.",
+    "category": "furniture",
+    "category_title": "Furniture",
+    "image_query": "dining,chair"
+  }
+]

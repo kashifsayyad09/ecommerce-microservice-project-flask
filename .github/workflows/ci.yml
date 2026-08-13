@@ -48,6 +48,17 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       # -------------------------
+      # Unit tests (new AI/MCP services)
+      # -------------------------
+      - name: 🧪 Run ai-agent & mcp-server unit tests
+        run: |
+          set -e
+          python3 -m pip install --quiet -r ai-agent/requirements.txt -r mcp-server/requirements.txt
+          python3 -m pip install --quiet pytest pytest-asyncio
+          PYTHONPATH=ai-agent python3 -m pytest tests/ai_agent -q
+          PYTHONPATH=mcp-server python3 -m pytest tests/mcp_server -q
+
+      # -------------------------
       # Build & Push Images
       # -------------------------
       - name: 🛠 Build and Push Docker Images
@@ -96,6 +107,53 @@ jobs:
 
           sed -i "s|image:.*|image: $IMAGE_URI|g" "$FOLDER/backend-deployment.yml"
 
+          # -------- mcp-server --------
+          FOLDER="mcp-server"
+          REPO_NAME="shopping-site-mcp-server"
+          IMAGE_URI="$ECR_REGISTRY/$REPO_NAME:$IMAGE_TAG"
+
+          echo "🚀 Building mcp-server"
+
+          aws ecr describe-repositories --repository-names $REPO_NAME >/dev/null 2>&1 || \
+            aws ecr create-repository \
+              --repository-name $REPO_NAME \
+              --image-scanning-configuration scanOnPush=true
+
+          docker build -t $IMAGE_URI $FOLDER
+          docker push $IMAGE_URI
+
+          sed -i "s|image:.*|image: $IMAGE_URI|g" "$FOLDER/k8s/mcp-server.yml"
+
+          # -------- ai-agent --------
+          FOLDER="ai-agent"
+          REPO_NAME="shopping-site-ai-agent"
+          IMAGE_URI="$ECR_REGISTRY/$REPO_NAME:$IMAGE_TAG"
+
+          echo "🚀 Building ai-agent"
+
+          aws ecr describe-repositories --repository-names $REPO_NAME >/dev/null 2>&1 || \
+            aws ecr create-repository \
+              --repository-name $REPO_NAME \
+              --image-scanning-configuration scanOnPush=true
+
+          docker build -t $IMAGE_URI $FOLDER
+          docker push $IMAGE_URI
+
+          sed -i "s|image:.*|image: $IMAGE_URI|g" "$FOLDER/k8s/ai-agent.yml"
+
+      # -------------------------
+      # Basic security checks (new services)
+      # -------------------------
+      - name: 🔒 Python dependency & lint check (ai-agent, mcp-server)
+        run: |
+          set -e
+          python3 -m pip install --quiet pip-audit
+          for svc in ai-agent mcp-server; do
+            echo "Auditing $svc"
+            python3 -m pip install --quiet -r "$svc/requirements.txt" --dry-run || true
+            python3 -m pip_audit -r "$svc/requirements.txt" || echo "⚠️ pip-audit found issues in $svc (non-blocking)"
+          done
+
       # -------------------------
       # Commit YAML changes
       # -------------------------
@@ -104,7 +162,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-          git add frontend/**/deployment.yml backend/backend-deployment.yml
+          git add frontend/**/deployment.yml backend/backend-deployment.yml mcp-server/k8s/mcp-server.yml ai-agent/k8s/ai-agent.yml
           git commit -m "🔄 Update image tags after build [skip ci]" || echo "No changes"
           git push origin main || echo "Nothing to push"
 

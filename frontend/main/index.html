@@ -1160,6 +1160,7 @@
 
   <script>
     const USER_KEY = "googleStoreUser";
+    const AI_TOKEN_KEY = "googleStoreAuthToken";
     const CART_KEY = "googleStoreServiceCart";
     const API = "/api";
     const SERVICE_API_QUEUE_KEY = "googleStoreApiQueue";
@@ -1283,12 +1284,14 @@
         return u;
       } catch { return null; }
     }
-    function saveUser(u) {
+    function saveUser(u, token) {
       localStorage.setItem(USER_KEY, JSON.stringify({...u, t: Date.now()}));
+      if (token) localStorage.setItem(AI_TOKEN_KEY, token);
       currentUser = readUser();
     }
     function clearUser() {
       localStorage.removeItem(USER_KEY);
+      localStorage.removeItem(AI_TOKEN_KEY);
       currentUser = null;
       historyData = null;
     }
@@ -1571,7 +1574,7 @@
         const d = await r.json().catch(() => ({}));
         if (!r.ok) return setNotice("loginNotice", d.error || "Login failed", "error");
         if (d.otp_required === false) {
-          saveUser(d.user);
+          saveUser(d.user, d.token);
           closeModal("authOverlay");
           renderUserUI();
           refreshCart();
@@ -1592,7 +1595,7 @@
         const r = await fetch(`${API}/login/verify`, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({email, otp})});
         const d = await r.json().catch(() => ({}));
         if (!r.ok) return setNotice("loginNotice", d.error || "Invalid OTP", "error");
-        saveUser(d.user);
+        saveUser(d.user, d.token);
         closeModal("authOverlay");
         renderUserUI();
         refreshCart();
@@ -1857,5 +1860,7 @@
   </script>
   <script src="/image-fallback.js" defer></script>
   <script src="/session-watchdog.js" defer></script>
+  <script src="/theme-toggle.js" defer></script>
+  <script src="/ai-chat-widget.js" defer></script>
 </body>
 </html>
