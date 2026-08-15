@@ -1,9 +1,9 @@
 name: EKS Terraform Deployment
 
 on:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
     paths:
       - "EKS-Terraform/**"
       - ".github/workflows/terraform-eks.yml"
