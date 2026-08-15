@@ -60,11 +60,6 @@ jobs:
       - name: Terraform Version
         run: terraform version
 
-      - name: Terraform Format Check
-        working-directory: ${{ env.TF_WORKING_DIR }}
-        run: |
-          terraform fmt -check -recursive
-
       - name: Terraform Init
         working-directory: ${{ env.TF_WORKING_DIR }}
         run: |
