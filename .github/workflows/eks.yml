@@ -7,6 +7,7 @@ env:
   AWS_REGION: us-east-1
   TF_VERSION: "1.12.2"
   TF_WORKING_DIR: EKS-Terraform
+  BUCKET_NAME : devncloudtechdevops
 
 jobs:
 
@@ -43,7 +44,31 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ env.TF_VERSION }}
+      - name: Create S3 Bucket if not exists
+        run: |
+         BUCKET_NAME="${{ env.BUCKET_NAME }}"
+            AWS_REGION="${{ env.AWS_REGION }}"
 
+             if aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
+            echo "Bucket already exists. Skipping creation."
+          else
+            echo "Bucket does not exist. Creating..."
+
+            aws s3api create-bucket \
+              --bucket "$BUCKET_NAME" \
+              --region "$AWS_REGION" \
+              --create-bucket-configuration LocationConstraint="$AWS_REGION"
+
+            echo "Bucket created successfully."
+          fi
+
+      - name: Verify S3 Bucket
+        run: |
+          aws s3api head-bucket \
+            --bucket "${{ env.BUCKET_NAME }}"
+
+          echo "S3 bucket is available."
+      
       - name: Terraform Version
         run: terraform version
 
