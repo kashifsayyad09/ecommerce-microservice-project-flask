@@ -18,6 +18,31 @@ This README provides end-to-end steps for installing **eksctl**, **kubectl**, **
 
 ---
 
+# 🧱 AWS Infrastructure Flow
+
+``` text
+AWS
+│
+├── VPC
+│   │
+│   ├── Public Subnet 1
+│   ├── Public Subnet 2
+│   │
+│   ├── Private Subnet 1
+│   └── Private Subnet 2
+│
+├── Internet Gateway
+│
+├── NAT Gateway
+│
+├── EKS
+│   ├── Control Plane
+│   └── Worker Nodes
+│
+└── RDS
+    └── Application Database
+```
+
 ## Deployment Workflow
 
 Follow these steps in order for successful deployment:
