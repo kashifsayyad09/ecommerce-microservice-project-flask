@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: computers-deployment
+  labels:
+    app: computers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: computers
+  template:
+    metadata:
+      labels:
+        app: computers
+    spec:
+      containers:
+      - name: computers
+        image: 695454131301.dkr.ecr.us-east-1.amazonaws.com/shopping-site-computers:98af46d3fbf99ee45b390fb08659cc78a1ff4dc8
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: computers-service
+  labels:
+    app: computers
+spec:
+  type: ClusterIP
+  selector:
+    app: computers
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
