@@ -243,4 +243,4 @@ kubernetes-veeraops-ecommerce-microservices-app/
 ```
 
 
-**Last Updated:** March 2026
+**Last Updated:** Aug 2026
