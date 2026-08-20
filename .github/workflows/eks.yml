@@ -1,0 +1,140 @@
+name: EKS Terraform Deployment
+
+on:
+  workflow_dispatch: 
+  # push:
+  #   branches:
+  #     - main
+    paths:
+      - "EKS-Terraform/**"
+      - ".github/workflows/terraform-eks.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "EKS-Terraform/**"
+
+  workflow_dispatch:
+
+env:
+  AWS_REGION: us-east-1
+  TF_VERSION: "1.12.2"
+  TF_WORKING_DIR: EKS-Terraform
+
+jobs:
+
+  # ============================================================
+  # TERRAFORM PLAN
+  # ============================================================
+  terraform-plan:
+    name: Terraform Validate & Plan
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # ----------------------------------------------------------
+      # AWS ACCESS KEY AUTHENTICATION
+      # ----------------------------------------------------------
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Verify AWS Identity
+        run: |
+          aws sts get-caller-identity
+      # ----------------------------------------------------------
+      # TERRAFORM
+      # ----------------------------------------------------------
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Version
+        run: terraform version
+
+      - name: Terraform Init
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: |
+          terraform init
+      - name: Terraform Validate
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: |
+          terraform validate
+      - name: Terraform Plan
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: |
+          terraform plan -out=tfplan
+      - name: Upload Terraform Plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-plan
+          path: EKS-Terraform/tfplan
+          retention-days: 5
+
+
+  # ============================================================
+  # TERRAFORM APPLY
+  # ============================================================
+  terraform-apply:
+    name: Terraform Apply
+    needs: terraform-plan
+
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # ----------------------------------------------------------
+      # AWS ACCESS KEY AUTHENTICATION
+      # ----------------------------------------------------------
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Verify AWS Identity
+        run: |
+          aws sts get-caller-identity
+      # ----------------------------------------------------------
+      # TERRAFORM
+      # ----------------------------------------------------------
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Init
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: |
+          terraform init
+      - name: Download Terraform Plan
+        uses: actions/download-artifact@v4
+        with:
+          name: terraform-plan
+          path: EKS-Terraform
+
+      - name: Terraform Apply
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: |
+          terraform apply -auto-approve tfplan
+      - name: Terraform Outputs
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: |
+          terraform output
