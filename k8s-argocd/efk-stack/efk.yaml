@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kashifsayyad09/ecommerce-microservice-project-flask.git
+    repoURL: https://github.com/CloudTechDevOps/google-store-DevOps-project.git
     path: efk-stack
     targetRevision: main
   destination:

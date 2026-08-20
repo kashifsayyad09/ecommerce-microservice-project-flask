@@ -272,7 +272,7 @@ resource "aws_eks_node_group" "node_group" {
   ]
   
     
-  instance_types = ["t3.medium"]
+  instance_types = ["t2.medium"]
 
   scaling_config {
 
@@ -290,7 +290,7 @@ resource "aws_eks_node_group" "node_group" {
     Name        = "eks-node"
     Environment = "dev"
     Project     = "eks-project"
-    Owner       = "veeraops"
+    Owner       = "ali"
   }
 }
 
@@ -330,6 +330,10 @@ resource "aws_instance" "eks" {
 
                 # Verify eksctl
                 eksctl version || true
+
+                yum install -y mariadb105-server
+                yum install -y git
+                yum install -y tree
 
                 EOF
   

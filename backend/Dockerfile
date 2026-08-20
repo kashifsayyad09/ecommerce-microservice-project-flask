@@ -14,7 +14,6 @@ RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt gunicorn
 
 COPY app.py .
-COPY data/ ./data/
 
 EXPOSE 5000
 
