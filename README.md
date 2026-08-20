@@ -138,4 +138,109 @@ kubectl get ingress -n google
 - mysql -h rds-endpoint -u admin -p<veerasir> < test.sql
 
 
+
+# 📁 Complete Repository Structure
+
+``` text
+kubernetes-veeraops-ecommerce-microservices-app/
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
+├── EKS-Terraform/
+│   ├── main.tf
+│   └── rds.tf
+│
+├── backend/
+│   ├── Dockerfile
+│   ├── app.py
+│   ├── requirements.txt
+│   ├── backend-cm.yml
+│   ├── backend-deployment.yml
+│   ├── mysql-deployment.yml
+│   ├── sql-cm.yml
+│   └── test.sql
+│
+├── frontend/
+│   ├── main/
+│   │   ├── Dockerfile
+│   │   ├── deployment.yml
+│   │   ├── ingress.yml
+│   │   ├── index.html
+│   │   ├── nginx.conf
+│   │   ├── image-fallback.js
+│   │   ├── mobile.css
+│   │   ├── session-watchdog.js
+│   │   └── session-watchdog copy.js
+│   │
+│   ├── appliances/
+│   ├── auto/
+│   ├── beauty/
+│   ├── books/
+│   ├── computers/
+│   ├── earphones/
+│   ├── electronics/
+│   ├── fashion/
+│   ├── food/
+│   ├── furniture/
+│   ├── googlegrocery/
+│   ├── googlemusic/
+│   ├── googlepay/
+│   ├── home/
+│   ├── mobiles/
+│   ├── sports/
+│   ├── toys/
+│   └── two-wheelers/
+│
+├── efk-stack/
+│   ├── custom-ns.yml
+│   ├── elasticsearch-sts.yml
+│   ├── elasticsearch-svc.yml
+│   ├── fluentbit-cm.yml
+│   ├── fluentbit-cr.yml
+│   ├── fluentbit-crb.yml
+│   ├── fluentbit-ds.yml
+│   ├── fluentbit-sa.yml
+│   ├── kibana-deploy.yml
+│   ├── kibana-svc.yml
+│   └── storage-cls.yml
+│
+├── k8s-argocd/
+│   ├── backend/
+│   │   └── backend.yaml
+│   │
+│   ├── frontend/
+│   │   ├── frontend-main.yml
+│   │   ├── frontend-appliances.yml
+│   │   ├── frontend-auto.yml
+│   │   ├── frontend-beauty.yml
+│   │   ├── frontend-books.yml
+│   │   ├── frontend-computers.yml
+│   │   ├── frontend-earphones.yml
+│   │   ├── frontend-electronics.yml
+│   │   ├── frontend-fashion.yml
+│   │   ├── frontend-food.yml
+│   │   ├── frontend-furniture.yml
+│   │   ├── frontend-googlegrocery.yml
+│   │   ├── frontend-googlemusic.yml
+│   │   ├── frontend-googlepay.yml
+│   │   ├── frontend-home.yml
+│   │   ├── frontend-mobiles.yml
+│   │   ├── frontend-sports.yml
+│   │   ├── frontend-toys.yml
+│   │   └── frontend-two-wheelers.yml
+│   │
+│   └── efk-stack/
+│       └── efk.yaml
+│
+├── grafana-prometheous/
+│   └── README.md
+│
+├── p1.png
+├── p2.png
+└── README.md
+```
+
+
 **Last Updated:** March 2026
