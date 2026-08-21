@@ -31,6 +31,8 @@ kubectl get secret -n prometheus stable-grafana \
 kubectl get pods -n prometheus
 kubectl get svc -n prometheus
 ```
+<img width="989" height="561" alt="photo_2026-08-21_08-50-49" src="https://github.com/user-attachments/assets/ac97f288-f9ee-4bc6-8dd9-dff385422577" />
+
 Notes:
 - Replace the release name `stable` with a more descriptive release name if desired.
 - Editing the services with `kubectl edit svc` lets you change ports, annotations, or type (e.g., to `NodePort`/`LoadBalancer`) as needed.
