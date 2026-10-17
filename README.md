@@ -7,13 +7,13 @@ This README provides end-to-end steps for installing **eksctl**, **kubectl**, **
 
 ### Workflow Diagram
 
-!\[Workflow Diagram](p1.png)
+[Workflow Diagram](p1.png)
 
-!\[Workflow Diagram](p2.png)
+[Workflow Diagram](p2.png)
 
-!\[Workflow Diagram](p3.png)
+[Workflow Diagram](p3.png)
 
-!\[Workflow Diagram](p4.png)
+[Workflow Diagram](p4.png)
 
 
 
