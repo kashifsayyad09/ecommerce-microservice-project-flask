@@ -96,10 +96,10 @@ jobs:
 
 
   # ============================================================
-  # TERRAFORM destroy
+  # TERRAFORM apply
   # ============================================================
-  terraform-destroy:
-    name: Terraform destroy
+  terraform-apply:
+    name: Terraform apply
     needs: terraform-plan
 
     runs-on: ubuntu-latest
@@ -148,10 +148,10 @@ jobs:
           name: terraform-plan
           path: EKS-Terraform
 
-      - name: Terraform destroy
+      - name: Terraform apply
         working-directory: ${{ env.TF_WORKING_DIR }}
         run: |
-          terraform destroy -auto-approve 
+          terraform apply -auto-approve tfplan
 
       # ----------------------------------------------------------
       # TERRAFORM OUTPUTS
