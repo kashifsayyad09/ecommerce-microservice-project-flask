@@ -1042,6 +1042,7 @@
             <p class="auth-otp-note">Check your email for a 6-digit OTP</p>
             <div class="field"><label>OTP Code</label><input type="text" id="signupOtp" placeholder="123456" maxlength="6" style="letter-spacing:6px;text-align:center;font-size:22px;font-weight:900;"></div>
             <button class="auth-submit" type="button" onclick="doSignupOtp()">Create Account</button>
+            <button class="auth-submit" type="button" style="margin-top:10px;background:transparent!important;box-shadow:none;border:1px solid rgba(255,255,255,.35)!important" onclick="resetSignup()">Change email / Resend OTP</button>
           </div>
           <div class="notice" id="signupNotice"></div>
         </form>
@@ -1621,6 +1622,14 @@
       } catch { setNotice("signupNotice", "Network error", "error"); }
       finally { signupBusy = false; }
     }
+    function resetSignup() {
+      document.getElementById("signupStep1").style.display = "block";
+      document.getElementById("signupStep2").style.display = "none";
+      document.getElementById("signupOtp").value = "";
+      document.getElementById("signupPass").value = "";
+      const n = document.getElementById("signupNotice"); n.textContent = ""; n.className = "notice";
+      signupBusy = false;
+    }
     async function doSignupOtp() {
       const otp = document.getElementById("signupOtp").value.trim();
       if (!otp) return setNotice("signupNotice", "Enter OTP", "error");
@@ -1630,12 +1639,13 @@
         const r = await fetch(`${API}/signup/verify`, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({email:signupEmail, otp})});
         const d = await r.json().catch(() => ({}));
         if (r.status === 409) {
-          setNotice("signupNotice", d.error, "success");
-          return setTimeout(() => { switchTab("login"); document.getElementById("loginEmail").value = signupEmail; }, 900);
+          setNotice("signupNotice", d.error || "Account already exists. Please sign in.", "success");
+          return setTimeout(() => { resetSignup(); switchTab("login"); document.getElementById("loginEmail").value = signupEmail; }, 900);
         }
         if (!r.ok) return setNotice("signupNotice", d.error || "Invalid OTP", "error");
         setNotice("signupNotice", "Account created. Login now.", "success");
         setTimeout(() => {
+          resetSignup();
           switchTab("login");
           document.getElementById("loginEmail").value = signupEmail;
           setNotice("loginNotice", "Account created. Enter password to login.", "success");

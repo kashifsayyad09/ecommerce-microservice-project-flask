@@ -504,21 +504,24 @@ def signup_request():
     conn = get_db_connection()
     try:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT id FROM users WHERE email = %s OR username = %s", (email, username))
+            cursor.execute("SELECT email, username FROM users WHERE email = %s OR username = %s", (email, username))
             existing_user = cursor.fetchone()
             if existing_user:
-                return jsonify({"error": "User already exists"}), 409
+                if existing_user["email"] == email:
+                    return jsonify({"error": "This email is already registered. Please sign in."}), 409
+                return jsonify({"error": "Username already taken. Please choose another."}), 409
 
+            # Remove any earlier pending request for this email OR username (and expired ones).
+            # Previously ON DUPLICATE KEY matched on username only and kept the OLD email, so the
+            # OTP was mailed to the new email but stored under the old one -> "Signup request not found".
+            cursor.execute(
+                "DELETE FROM pending_signups WHERE email = %s OR username = %s OR otp_expiry < %s",
+                (email, username, datetime.now()),
+            )
             cursor.execute(
                 """
                 INSERT INTO pending_signups (email, username, full_name, password_hash, otp_code, otp_expiry)
                 VALUES (%s, %s, %s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE
-                    username = VALUES(username),
-                    full_name = VALUES(full_name),
-                    password_hash = VALUES(password_hash),
-                    otp_code = VALUES(otp_code),
-                    otp_expiry = VALUES(otp_expiry)
                 """,
                 (email, username, full_name, password_hash, otp, expiry),
             )
@@ -530,10 +533,18 @@ def signup_request():
             recipients=[email],
         )
         msg.body = f"Hello {username}, your registration OTP for Drocart Shop is {otp}. It expires in 10 minutes."
-        mail.send(msg)
+        try:
+            mail.send(msg)
+        except Exception as mail_exc:
+            app.logger.error("Signup OTP email failed: %s", mail_exc)
+            with conn.cursor() as cursor:
+                cursor.execute("DELETE FROM pending_signups WHERE email = %s", (email,))
+                conn.commit()
+            return jsonify({"error": "Could not send the OTP email. Check the email address and try again."}), 502
         return jsonify({"message": "OTP sent to email!"}), 200
     except Exception as exc:
         conn.rollback()
+        app.logger.error("signup_request failed: %s", exc)
         return jsonify({"error": str(exc)}), 500
     finally:
         conn.close()
@@ -592,9 +603,13 @@ def signup_verify():
                 ),
                 201,
             )
-    except pymysql.MySQLError:
+    except pymysql.IntegrityError:
         conn.rollback()
-        return jsonify({"error": "User already exists"}), 409
+        return jsonify({"error": "Username or email is already registered. Please sign in."}), 409
+    except pymysql.MySQLError as exc:
+        conn.rollback()
+        app.logger.error("signup_verify DB error: %s", exc)
+        return jsonify({"error": f"Database error: {exc}"}), 500
     finally:
         conn.close()
 
