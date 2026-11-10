@@ -297,12 +297,15 @@ resource "aws_eks_node_group" "node_group" {
 
 resource "aws_instance" "eks" {
     ami           = "ami-02dfbd4ff395f2a1b"
-    instance_type = "c7i-flex.large"
+    instance_type = "t2.medium"
     subnet_id     = aws_subnet.public1.id
     vpc_security_group_ids = [aws_security_group.allow_all.id]
     root_block_device {
       volume_size = "30"
     }
+
+#instance_type = "t2.medium"
+
    
     
     tags = {
